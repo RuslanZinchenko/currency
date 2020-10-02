@@ -1,22 +1,22 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './MoviePage.module.css';
+import styles from './SearchBar.module.css';
 
 const SearchBar = ({ value, onChangeFilter }) => (
-  <Fragment>
+  <div className={styles.searchBar}>
     <input
       type="text"
       className={styles.input}
       value={value}
       onChange={onChangeFilter}
-      placeholder="Movie Search..."
+      placeholder="Currency Search..."
     />
-  </Fragment>
+  </div>
 );
 
 SearchBar.propTypes = {
   value: PropTypes.string.isRequired,
-  onChangeFilter: PropTypes.func.isRequired,
+  onChangeFilter: PropTypes.string.isRequired,
 };
 
 export default SearchBar;

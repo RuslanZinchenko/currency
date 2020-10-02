@@ -10,9 +10,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
-    "shortid": "^2.2.14"
+    "shortid": "^2.2.15"
   },
-  "homepage": "https://ruslanzinchenko.github.io/goit-react-hw-02/",
+  "homepage": "https://ruslanzinchenko.github.io/currency/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

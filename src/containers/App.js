@@ -1,60 +1,54 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import MovieGrid from '../components/MovieGrid';
-import SearchBar from '../components/SearchBar';
-import styles from '../components/MoviePage.module.css';
+import CurrencyList from '../components/CurrencyList/CurrencyList';
+import SearchBar from '../components/SearchBar/SearchBar';
 import * as ArticleAPI from '../services/article-api';
-
-const filterTasks = (tasks, filter) => {
-  return tasks.filter(task =>
-    task.title.toLowerCase().includes(filter.toLowerCase()),
-  );
-};
+import styles from './App.module.css';
 
 export default class App extends Component {
-  // static propTypes = {
-  //   items: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       id: PropTypes.number.isRequired,
-  //       title: PropTypes.string.isRequired,
-  //       posterUrl: PropTypes.string.isRequired,
-  //       overview: PropTypes.string.isRequired,
-  //     }),
-  //   ).isRequired,
-  // };
-
   state = {
+    data: {},
     currency: {},
     filter: '',
-    isLoading: false,
     error: null,
   };
 
   componentDidMount() {
-    this.setState({ isLoading: true });
     ArticleAPI.fetchCurrency()
       .then(data =>
         this.setState({
-          currency: data.data,
+          data: data.data,
+          currency: data.data.rates,
         }),
       )
-      .catch(error => this.setState({ error }))
-      .finally(() => this.setState({ isLoading: false }));
+      .catch(error => this.setState({ error }));
   }
 
   changeFilter = e => {
     this.setState({ filter: e.target.value });
   };
 
-  render() {
+  filterCurrency = () => {
     const { currency, filter } = this.state;
-    console.log(currency.rates);
-    // const filteredTasks = filterTasks(tasks, filter);
+    const keyArr = Object.entries(currency).filter(i =>
+      i[0].toLowerCase().includes(filter.toLowerCase()),
+    );
+    return keyArr.sort().map(i => `${i[0]}: ${i[1]}`);
+  };
+
+  render() {
+    const { data, currency, filter, error } = this.state;
+    const filteredCurrency = this.filterCurrency(currency, filter);
+    console.log(data);
 
     return (
-      <div className={styles.container}>
-        {/* <SearchBar value={filter} onChangeFilter={this.changeFilter} />
-        <MovieGrid items={filteredTasks} /> */}
+      <div className={styles.wrapper}>
+        {error || ''}
+        <SearchBar value={filter} onChangeFilter={this.changeFilter} />
+        <div className={styles.currencyInfo}>
+          <p>Base: {data.base}</p>
+          <p>Date: {data.date}</p>
+        </div>
+        <CurrencyList items={filteredCurrency} />
       </div>
     );
   }
