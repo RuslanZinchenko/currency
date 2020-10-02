@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/currency/static/css/main.24c6e89b.chunk.css",
+    "main.js": "/currency/static/js/main.0e43f1fd.chunk.js",
+    "main.js.map": "/currency/static/js/main.0e43f1fd.chunk.js.map",
+    "runtime~main.js": "/currency/static/js/runtime~main.c13dde9a.js",
+    "runtime~main.js.map": "/currency/static/js/runtime~main.c13dde9a.js.map",
+    "static/js/2.c50ff5b0.chunk.js": "/currency/static/js/2.c50ff5b0.chunk.js",
+    "static/js/2.c50ff5b0.chunk.js.map": "/currency/static/js/2.c50ff5b0.chunk.js.map",
+    "index.html": "/currency/index.html",
+    "precache-manifest.48a8fa755e5729ce1ae42c2732ee4886.js": "/currency/precache-manifest.48a8fa755e5729ce1ae42c2732ee4886.js",
+    "service-worker.js": "/currency/service-worker.js",
+    "static/css/main.24c6e89b.chunk.css.map": "/currency/static/css/main.24c6e89b.chunk.css.map",
+    "static/media/SearchBar.module.css": "/currency/static/media/search-black-24dp.4da2088d.svg"
+  }
+}
