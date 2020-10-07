@@ -16,11 +16,7 @@ const CurrencyList = ({ items }) => (
 );
 
 CurrencyList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.array.isRequired,
-    }),
-  ).isRequired,
+  items: PropTypes.arrayOf.isRequired,
 };
 
 export default CurrencyList;
